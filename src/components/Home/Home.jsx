@@ -1,9 +1,11 @@
-import img from "/homeImg.jpg";
+import Banner from "./Banner";
+import NewPlants from "./NewPlants";
 
 const Home = () => {
   return (
     <div>
-      <h2 className="text-white text-3xl p-10">this is home</h2>
+      <Banner></Banner>
+      <NewPlants></NewPlants>
     </div>
   );
 };
