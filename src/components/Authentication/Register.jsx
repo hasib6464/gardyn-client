@@ -4,17 +4,21 @@ import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, updateProfileInfo } = use(AuthContext);
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const { email, password, ...rest } = Object.fromEntries(formData.entries());
-    console.log(email, password, rest);
+    console.log(email, password, rest.name);
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        const user = result.user;
+        updateProfileInfo(user, {
+          displayName: rest.name,
+          photoURL: rest.photo,
+        });
         Swal.fire({
           position: "center",
           icon: "success",
@@ -22,6 +26,7 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+
         navigate("/");
       })
       .catch((error) => console.log(error.message));

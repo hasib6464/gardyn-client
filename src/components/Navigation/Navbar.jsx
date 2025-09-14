@@ -69,10 +69,10 @@ const Navbar = () => {
             <>
               <div
                 className="avatar mr-5 tooltip tooltip-bottom"
-                data-tip={user.email}
+                data-tip={user?.displayName}
               >
-                <div className="w-12 rounded-full">
-                  <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
                 </div>
               </div>
               <button
