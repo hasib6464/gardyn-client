@@ -11,7 +11,17 @@ const Register = () => {
     const form = e.target;
     const formData = new FormData(form);
     const { email, password, ...rest } = Object.fromEntries(formData.entries());
-    console.log(email, password, rest.name);
+    
+ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+ if (!passwordRegex.test(password)) {
+   Swal.fire({
+     icon: "error",
+     title: "Invalid Password",
+     text: "Password must contain at least one uppercase, one lowercase letter, and be at least 6 characters long.",
+   });
+   return;
+ }
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;

@@ -60,7 +60,7 @@ const Banner = () => {
             <div className="hero-overlay"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-3xl">
-                <h1 className="mb-5 text-5xl font-bold">Money plants</h1>
+                <h1 className="mb-5 text-5xl font-bold">Money plants Care</h1>
                 <p className="mb-10">
                   A bonsai plant is a miniature tree or shrub grown and trained
                   in a shallow container, creating an artistic, aged, and
